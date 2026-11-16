@@ -1,0 +1,9 @@
+Package: com.yourname.ios26phone
+Name: IOS26Phone
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Description: Phone app UI inspired by iOS 26 (dialpad, contacts, recents, in-call)
+Maintainer: you
+Author: you
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
