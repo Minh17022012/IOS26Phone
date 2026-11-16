@@ -3,7 +3,8 @@
 // bật kDebug để xem class thực tế trong syslog rồi sửa danh sách key cho khớp máy bạn.
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-
+@interface TPNumberPadButton : UIControl @end
+@interface PHBottomBarButton : UIControl @end
 static BOOL kPhone = NO, kInCall = NO;
 static const BOOL kDebug = NO;
 static NSString *const kUnifiedKey = @"IOS26PhoneUnified";
@@ -231,7 +232,7 @@ static void StyleDetailCell(UITableViewCell *c) {
 - (void)layoutSubviews {
     %orig;
     if (!kPhone) return;
-    UITableView *tv = TableOf(self); id del = tv.delegate ?: tv.dataSource;
+    UITableView *tv = TableOf(self); id del = (id)tv.delegate ?: (id)tv.dataSource;
     if (NameHas(del, @[@"ContactListViewController", @"Recents"]) || NameHas(self, @[@"Recents"])) StyleListCell(self);
     else if (NameHas(del, @[@"ContactViewController", @"ContactContentViewController"])) StyleDetailCell(self);
 }
